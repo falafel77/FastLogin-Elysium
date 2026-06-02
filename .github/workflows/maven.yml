@@ -34,7 +34,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version-file: '.java-version'
+          java-version: '21'
           cache: 'maven'
 
       # Build and test (included in package)
@@ -59,7 +59,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version-file: '.java-version'
+          java-version: '21'
           cache: 'maven'
 
       - name: Submit Dependency Snapshot

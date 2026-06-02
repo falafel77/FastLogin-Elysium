@@ -49,7 +49,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version-file: '.java-version'
+          java-version: '21'
           cache: 'maven'
 
       # Manually start the autobuild process, because autobuild always selects Java 8 as build toolchain, but
