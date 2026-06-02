@@ -46,7 +46,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.6.0</version>
+                <version>3.6.2</version>
                 <configuration>
                     <createDependencyReducedPom>false</createDependencyReducedPom>
                     <shadedArtifactAttached>false</shadedArtifactAttached>
@@ -164,7 +164,7 @@
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
-            <version>1.21.6-R0.1-SNAPSHOT</version>
+            <version>26.1.2.build.68-stable</version>
             <scope>provided</scope>
             <!-- Use our own newer api version -->
             <exclusions>
@@ -275,7 +275,7 @@
         <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
-            <version>2.11.6</version>
+            <version>2.12.2</version>
             <scope>provided</scope>
             <optional>true</optional>
             <exclusions>
@@ -290,7 +290,7 @@
         <dependency>
             <groupId>fr.xephi</groupId>
             <artifactId>authme</artifactId>
-            <version>5.6.0</version>
+            <version>5.7.0</version>
             <scope>provided</scope>
             <optional>true</optional>
             <exclusions>
@@ -304,7 +304,7 @@
         <dependency>
             <groupId>com.lenis0012.bukkit</groupId>
             <artifactId>loginsecurity</artifactId>
-            <version>3.3.0</version>
+            <version>3.3.1</version>
             <scope>provided</scope>
             <optional>true</optional>
             <exclusions>
@@ -347,7 +347,7 @@
         <dependency>
             <groupId>com.github.zigazajc007</groupId>
             <artifactId>Passky</artifactId>
-            <version>v3.0.0</version>
+            <version>v3.3.0</version>
             <scope>provided</scope>
             <optional>true</optional>
 
