@@ -40,10 +40,6 @@
     <artifactId>fastlogin.bungee</artifactId>
     <packaging>jar</packaging>
 
-    <properties>
-        <maven.compiler.release>17</maven.compiler.release>
-    </properties>
-
     <!--Represents the main plugin-->
     <name>FastLoginBungee</name>
 

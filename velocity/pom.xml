@@ -43,10 +43,6 @@
     <!--Represents the main plugin-->
     <name>FastLoginVelocity</name>
 
-    <properties>
-        <maven.compiler.release>17</maven.compiler.release>
-    </properties>
-
     <build>
         <plugins>
             <plugin>
@@ -191,6 +187,14 @@
                     <artifactId>waffle-jna</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <!-- SQLite database driver for Velocity -->
+        <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>[3.36,)</version>
+            <scope>compile</scope>
         </dependency>
 
         <!-- Bedrock player bridge -->

@@ -56,7 +56,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Duration;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -82,7 +81,7 @@ public class FastLoginCore<P extends C, C, T extends PlatformPlugin<C>> {
             Duration.ofMinutes(5), -1
     );
 
-    private final Collection<UUID> pendingConfirms = new HashSet<>();
+    private final Set<UUID> pendingConfirms = ConcurrentHashMap.newKeySet();
     private final T plugin;
 
     private MojangResolver resolver;

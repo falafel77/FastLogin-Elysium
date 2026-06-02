@@ -166,7 +166,7 @@ public abstract class SQLStorage implements AuthStorage {
 
     private Optional<StoredProfile> parseResult(ResultSet resultSet) throws SQLException {
         if (resultSet.next()) {
-            long userId = resultSet.getInt("UserID");
+            long userId = resultSet.getLong("UserID");
 
             UUID uuid = Optional.ofNullable(resultSet.getString("UUID")).map(UUIDAdapter::parseId).orElse(null);
 
@@ -214,14 +214,13 @@ public abstract class SQLStorage implements AuthStorage {
 
                         saveStmt.setString(2, playerProfile.getName());
                         saveStmt.setBoolean(3, playerProfile.isOnlinemodePreferred());
-                        saveStmt.setBoolean(3, playerProfile.isOnlinemodePreferred());
                         saveStmt.setInt(4, playerProfile.getFloodgate().getValue());
                         saveStmt.setString(5, playerProfile.getLastIp());
 
                         saveStmt.execute();
                         try (ResultSet generatedKeys = saveStmt.getGeneratedKeys()) {
                             if (generatedKeys.next()) {
-                                playerProfile.setRowId(generatedKeys.getInt(1));
+                                playerProfile.setRowId(generatedKeys.getLong(1));
                             }
                         }
                     }

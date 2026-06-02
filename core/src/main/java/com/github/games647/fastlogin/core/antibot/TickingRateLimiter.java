@@ -68,10 +68,8 @@ public class TickingRateLimiter implements RateLimiter {
         long nowMilli = ticker.read() / 1_000_000;
         synchronized (this) {
             // having synchronized will limit the amount of concurrency a lot
-            TimeRecord oldest = records.peekFirst();
-            if (oldest != null && oldest.hasExpired(nowMilli)) {
-                records.pop();
-                totalRequests -= oldest.getRequestCount();
+            while (!records.isEmpty() && records.peekFirst().hasExpired(nowMilli)) {
+                totalRequests -= records.pop().getRequestCount();
             }
 
             // total requests reached block any further requests

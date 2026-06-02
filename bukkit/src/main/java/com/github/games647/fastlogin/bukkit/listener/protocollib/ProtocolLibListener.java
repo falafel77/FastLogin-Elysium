@@ -286,13 +286,19 @@ public class ProtocolLibListener extends PacketAdapter {
     }
 
     private String getUsername(PacketContainer packet) {
-        WrappedGameProfile profile = packet.getGameProfiles().readSafely(0);
-        if (profile == null) {
-            return packet.getStrings().read(0);
+        // First try to get username from string (for Paper 1.21 compatibility)
+        String usernameString = packet.getStrings().readSafely(0);
+        if (usernameString != null && !usernameString.isEmpty()) {
+            return usernameString;
         }
 
-        //player.getName() won't work at this state
-        return profile.getName();
+        // Fallback to GameProfile for older versions
+        WrappedGameProfile profile = packet.getGameProfiles().readSafely(0);
+        if (profile != null) {
+            return profile.getName();
+        }
+
+        return null; // This should not happen
     }
 
     private FloodgatePlayer getFloodgatePlayer(Player player) {
