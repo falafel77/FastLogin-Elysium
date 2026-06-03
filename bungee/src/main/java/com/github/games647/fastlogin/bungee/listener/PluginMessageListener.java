@@ -127,6 +127,11 @@ public class PluginMessageListener implements Listener {
             //bukkit module successfully received and force logged in the user
             //update only on success to prevent corrupt data
             BungeeLoginSession loginSession = plugin.getSession().get(forPlayer.getPendingConnection());
+            if (loginSession == null) {
+                plugin.getLog().warn("Tried to save profile for non-existent session: {}", forPlayer.getName());
+                return;
+            }
+
             StoredProfile playerProfile = loginSession.getProfile();
             loginSession.setRegistered(true);
 

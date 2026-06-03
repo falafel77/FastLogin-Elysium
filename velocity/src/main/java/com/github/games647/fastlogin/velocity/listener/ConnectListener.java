@@ -242,6 +242,10 @@ public class ConnectListener {
 
         // Get all registered PreLoginEvent handlers
         List<?> loginEventRegistrations = handlersByType.get(PreLoginEvent.class);
+        if (loginEventRegistrations.isEmpty()) {
+            return null;
+        }
+
         Field pluginField = loginEventRegistrations.get(0).getClass().getDeclaredField("plugin");
         pluginField.setAccessible(true);
 

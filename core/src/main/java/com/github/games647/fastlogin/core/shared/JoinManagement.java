@@ -59,6 +59,8 @@ public abstract class JoinManagement<P extends C, C, S extends LoginSource> {
         StoredProfile profile = core.getStorage().loadProfile(username);
         //can't be a premium Java player, if it's not saved in the database
         if (profile == null) {
+            core.getPlugin().getLog().error("Failed to load profile for {}", username);
+            source.kick(core.getMessage("error-kick"));
             return;
         }
 

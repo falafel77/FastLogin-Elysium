@@ -75,7 +75,7 @@ public class FastLoginVelocity implements PlatformPlugin<CommandSource> {
     private final ProxyServer server;
     private final Path dataDirectory;
     private final Logger logger;
-    private final ConcurrentMap<InetSocketAddress, VelocityLoginSession> session = new MapMaker().weakKeys().makeMap();
+    private final ConcurrentMap<InetSocketAddress, VelocityLoginSession> session = new MapMaker().makeMap();
     private static final String PROXY_ID_FILE = "proxyId.txt";
 
     private FastLoginCore<Player, CommandSource, FastLoginVelocity> core;
