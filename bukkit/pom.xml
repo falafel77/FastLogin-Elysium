@@ -46,7 +46,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.6.0</version>
+                <version>3.6.2</version>
                 <configuration>
                     <createDependencyReducedPom>false</createDependencyReducedPom>
                     <shadedArtifactAttached>false</shadedArtifactAttached>
@@ -282,7 +282,7 @@
         <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
-            <version>2.11.6</version>
+            <version>2.12.2</version>
             <scope>provided</scope>
             <optional>true</optional>
             <exclusions>
@@ -311,7 +311,7 @@
         <dependency>
             <groupId>com.lenis0012.bukkit</groupId>
             <artifactId>loginsecurity</artifactId>
-            <version>3.3.0</version>
+            <version>3.3.1</version>
             <scope>provided</scope>
             <optional>true</optional>
             <exclusions>
@@ -354,7 +354,7 @@
         <dependency>
             <groupId>com.github.zigazajc007</groupId>
             <artifactId>Passky</artifactId>
-            <version>v3.0.0</version>
+            <version>v3.3.0</version>
             <scope>provided</scope>
             <optional>true</optional>
 
