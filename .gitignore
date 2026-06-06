@@ -1,49 +1,32 @@
-# Eclipse
-.classpath
-.project
-.settings/
+```gitignore
+# Dependencies
+target/
 
-# NetBeans
-nbproject/
-nb-configuration.xml
+# Logs and temp files
+*.log
+*.tmp
 
-# IntelliJ
-*.iml
-*.ipr
-*.iws
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
 .idea/
 
-# VSCode
-.vscode/
+# Build artifacts (common in Java/Maven projects)
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
 
-# Maven
-target/
-pom.xml.versionsBackup
+# Test reports
+test-results/
+surefire-reports/
 
-# Gradle
-.gradle
-
-# Ignore Gradle GUI config
-gradle-app.setting
-
-# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
-!gradle-wrapper.jar
-
-# various other potential build files
-build/
-bin/
-dist/
-manifest.mf
+# Original rules preserved
 *.log
-
-# Vim
-.*.sw[a-p]
-
-# virtual machine crash logs, see https://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-
-# Mac filesystem dust
-.DS_Store
-
-# Factorypath from Visual Studio Code
-.factorypath
+```

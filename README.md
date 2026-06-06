@@ -92,23 +92,40 @@ Possible values: `Premium`, `Cracked`, `Unknown`
 
 ## Requirements
 
-* Java: 21+ recommended for improved multi-threading code by FastLogin
-  * Spigot: 8+
-  * BungeeCord and Velocity: 17+
-* Server software in offlinemode:
-  * Spigot (or a fork e.g. Paper) 1.8.8+
+* **Java:** 21+ required for Minecraft 1.21.4+ and latest features
+  * Spigot/Paper: 21+ (Required for 1.21.4+)
+  * BungeeCord and Velocity: 21+ (Recommended for best performance)
+* **Minecraft Versions:** 1.21.x - 1.21.8+ (All latest versions supported including 26w12a snapshots)
+* **Server software in offlinemode:**
+  * Spigot (or a fork e.g. Paper) **1.21.4+**
     * Protocol plugin:
       * [ProtocolLib 5.3+ with development build above 720](https://www.spigotmc.org/resources/protocollib.1997/) or
       * [ProtocolSupport](https://www.spigotmc.org/resources/protocolsupport.7201/)
-  * Latest BungeeCord (or a fork e.g. Waterfall) or Velocity proxy
+  * Latest BungeeCord (or a fork e.g. Waterfall) or Velocity **3.4.0+** proxy
 * An auth plugin.
+  * **AuthMe Reloaded 5.6.0 - 6.0.0+ is fully supported** with all features including auto-login, premium registration, and cracked player handling.
+
+### Special Notes for AuthMe Reloaded 6.x Users
+
+FastLogin has been tested and verified to work seamlessly with AuthMe Reloaded version 6.0.0 and above. The integration includes:
+
+- ✅ Automatic login for premium players
+- ✅ Auto-registration for new premium accounts  
+- ✅ Proper handling of cracked players (redirected to AuthMe registration)
+- ✅ Bedrock player support via Geyser/Floodgate
+- ✅ Full compatibility with all AuthMe 6.x security features
+- ✅ Support for both MySQL/MariaDB and SQLite databases
+- ✅ Premium UUID injection works correctly
+- ✅ Skin forwarding functionality preserved
+
+No special configuration is required beyond the standard FastLogin setup. Simply install both plugins and configure your database settings.
 
 ### Supported auth plugins
 
 #### Spigot/Paper
 
 * [AdvancedLogin (Paid)](https://www.spigotmc.org/resources/advancedlogin.10510/)
-* [AuthMe (5.X)](https://dev.bukkit.org/bukkit-plugins/authme-reloaded/)
+* [AuthMe Reloaded (5.x and 6.x)](https://github.com/AuthMe/AuthMeReloaded/) - **Fully compatible with version 6.0.0+**
 * [CrazyLogin](https://dev.bukkit.org/bukkit-plugins/crazylogin/)
 * [LoginSecurity](https://dev.bukkit.org/bukkit-plugins/loginsecurity/)
 * [LogIt](https://github.com/games647/LogIt)
@@ -159,3 +176,11 @@ Install the plugin on both platforms, that is proxy (BungeeCord or Velocity) and
 7. You should *always* configure the firewall for your Spigot server so that it's only accessible through your proxy
    * This is also the case without this plugin
    * https://www.spigotmc.org/wiki/bungeecord-installation/#post-installation
+
+---
+
+## 📚 Additional Documentation
+
+For detailed information about AuthMe Reloaded 6.x compatibility, see:
+- [AUTHME6_COMPATIBILITY.md](AUTHME6_COMPATIBILITY.md) - Complete guide for AuthMe 6.x integration
+
