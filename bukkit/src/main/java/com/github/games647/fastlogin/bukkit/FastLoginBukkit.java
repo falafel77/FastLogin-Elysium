@@ -25,13 +25,13 @@
  */
 package com.github.games647.fastlogin.bukkit;
 
-import com.comphenix.protocol.ProtocolLibrary;
+import io.github.retrooper.packetevents.PacketEvents;
 import com.github.games647.fastlogin.bukkit.command.CrackedCommand;
 import com.github.games647.fastlogin.bukkit.command.PremiumCommand;
 import com.github.games647.fastlogin.bukkit.command.DeleteCommand;
 import com.github.games647.fastlogin.bukkit.listener.ConnectionListener;
 import com.github.games647.fastlogin.bukkit.listener.PaperCacheListener;
-import com.github.games647.fastlogin.bukkit.listener.protocollib.ProtocolLibListener;
+import com.github.games647.fastlogin.bukkit.listener.packetevents.PacketEventsListener;
 import com.github.games647.fastlogin.bukkit.listener.protocollib.SkinApplyListener;
 import com.github.games647.fastlogin.bukkit.listener.protocolsupport.ProtocolSupportListener;
 import com.github.games647.fastlogin.bukkit.task.DelayedAuthHook;
@@ -120,15 +120,15 @@ public class FastLoginBukkit extends JavaPlugin implements PlatformPlugin<Comman
             AntiBotService antiBotService = core.getAntiBotService();
             if (pluginManager.isPluginEnabled("ProtocolSupport")) {
                 pluginManager.registerEvents(new ProtocolSupportListener(this, antiBotService), this);
-            } else if (pluginManager.isPluginEnabled("ProtocolLib")) {
-                ProtocolLibListener.register(this, antiBotService, core.getConfig().getBoolean("verifyClientKeys"));
+            } else if (pluginManager.isPluginEnabled("PacketEvents")) {
+                PacketEventsListener.register(this, antiBotService, core.getConfig().getBoolean("verifyClientKeys"));
 
                 //if server is using paper - we need to set the skin at pre login anyway, so no need for this listener
                 if (!isPaper() && getConfig().getBoolean("forwardSkin")) {
                     pluginManager.registerEvents(new SkinApplyListener(this), this);
                 }
             } else {
-                logger.warn("Either ProtocolLib or ProtocolSupport have to be installed if you don't use BungeeCord");
+                logger.warn("Either PacketEvents or ProtocolSupport have to be installed if you don't use BungeeCord");
                 setEnabled(false);
                 return;
             }
@@ -196,8 +196,9 @@ public class FastLoginBukkit extends JavaPlugin implements PlatformPlugin<Comman
             }
         }
 
-        if (getServer().getPluginManager().isPluginEnabled("ProtocolLib")) {
-            ProtocolLibrary.getProtocolManager().getAsynchronousManager().unregisterAsyncHandlers(this);
+        if (getServer().getPluginManager().isPluginEnabled("PacketEvents")) {
+            // PacketEvents handles cleanup automatically
+            plugin.getLog().info("PacketEvents cleanup handled automatically");
         }
     }
 
@@ -267,9 +268,9 @@ public class FastLoginBukkit extends JavaPlugin implements PlatformPlugin<Comman
 
     /**
      * Wait before the server is fully started. This is workaround, because connections right on startup are not
-     * injected by ProtocolLib
+     * injected by PacketEvents
      *
-     * @return true if ProtocolLib can now intercept packets
+     * @return true if PacketEvents can now intercept packets
      */
     public boolean isServerFullyStarted() {
         return serverStarted;

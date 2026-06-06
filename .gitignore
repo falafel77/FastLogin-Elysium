@@ -1,49 +1,64 @@
-# Eclipse
-.classpath
-.project
-.settings/
+```
+# Dependencies
+target/
 
-# NetBeans
-nbproject/
-nb-configuration.xml
-
-# IntelliJ
-*.iml
-*.ipr
-*.iws
+# IDE
 .idea/
-
-# VSCode
 .vscode/
 
-# Maven
-target/
-pom.xml.versionsBackup
-
-# Gradle
-.gradle
-
-# Ignore Gradle GUI config
-gradle-app.setting
-
-# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
-!gradle-wrapper.jar
-
-# various other potential build files
-build/
-bin/
-dist/
-manifest.mf
+# Logs
 *.log
 
-# Vim
-.*.sw[a-p]
+# Environment
+.env
+.env.local
+*.env.*
 
-# virtual machine crash logs, see https://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+.env
+.env.local
+.env.*
+.pytest_cache/
+.mypy_cache/
+.coverage
+coverage/
+htmlcov/
 
-# Mac filesystem dust
+# Node
+node_modules/
+
+# OS
 .DS_Store
+Thumbs.db
 
-# Factorypath from Visual Studio Code
-.factorypath
+# Archives
+*.zip
+*.gz
+*.tar
+*.tgz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.zst
+*.lz4
+*.lzh
+*.cab
+*.arj
+*.rpm
+*.deb
+*.Z
+*.lz
+*.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
+```
