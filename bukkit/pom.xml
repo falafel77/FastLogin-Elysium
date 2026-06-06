@@ -196,9 +196,9 @@
 
         <!--Library for listening and sending Minecraft packets - Using PacketEvents for modern versions support -->
         <dependency>
-            <groupId>com.github.retrooper</groupId>
+            <groupId>com.github.retrooper.packetevents</groupId>
             <artifactId>packetevents-core</artifactId>
-            <version>2.12.2</version>
+            <version>${packetevents.version}</version>
             <scope>provided</scope>
             <exclusions>
                 <exclusion>
@@ -209,9 +209,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.retrooper</groupId>
+            <groupId>com.github.retrooper.packetevents</groupId>
             <artifactId>packetevents-spigot</artifactId>
-            <version>2.12.2</version>
+            <version>${packetevents.version}</version>
             <scope>provided</scope>
             <exclusions>
                 <exclusion>
