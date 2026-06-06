@@ -32,92 +32,92 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.UUID;
 
 /**
- * اختبار شامل لتوافق FastLogin مع AuthMeReloaded 6.0.0
- * يختبر ثلاث سيناريوهات:
- * 1. لاعب أصلي (Premium/Original)
- * 2. لاعب مقرصن (Cracked)
- * 3. لاعب Bedrock (من خلال Geyser)
+ * Comprehensive compatibility test for FastLogin with AuthMeReloaded 6.0.0
+ * Tests three scenarios:
+ * 1. Premium/Original Player
+ * 2. Cracked Player
+ * 3. Bedrock Player (via Geyser)
  */
 public class AuthMeCompatibilityTest {
 
     @Test
-    @DisplayName("اختبار اللاعب الأصلي (Premium)")
+    @DisplayName("Premium Player Test")
     public void testPremiumPlayer() {
-        System.out.println("\n=== اختبار اللاعب الأصلي ===");
+        System.out.println("\n=== Premium Player Test ===");
         
         String playerName = "Notch";
         UUID uuid = UUID.fromString("069a79f4-44e9-4726-a5be-fca90e38aaf5");
         boolean isPremium = true;
         
-        System.out.println("اللاعب: " + playerName);
+        System.out.println("Player: " + playerName);
         System.out.println("UUID: " + uuid);
-        System.out.println("أصلي: " + isPremium);
+        System.out.println("Premium: " + isPremium);
         
-        // التحقق من أن اللاعبين الأصليين لديهم UUID صالح
-        assertNotNull(uuid, "يجب أن يكون للاعب الأصلي UUID");
-        assertTrue(isPremium, "يجب أن يكون اللاعب أصلياً");
+        // Verify that premium players have a valid UUID
+        assertNotNull(uuid, "Premium player must have a UUID");
+        assertTrue(isPremium, "Player must be premium");
         
-        System.out.println("✅ نجح اختبار اللاعب الأصلي - متوافق مع AuthMe 6.0.0");
+        System.out.println("✅ Premium player test passed - Compatible with AuthMe 6.0.0");
     }
 
     @Test
-    @DisplayName("اختبار اللاعب المقرصن (Cracked)")
+    @DisplayName("Cracked Player Test")
     public void testCrackedPlayer() {
-        System.out.println("\n=== اختبار اللاعب المقرصن ===");
+        System.out.println("\n=== Cracked Player Test ===");
         
         String playerName = "CrackedPlayer123";
         boolean isPremium = false;
         
-        System.out.println("اللاعب: " + playerName);
-        System.out.println("أصلي: " + isPremium);
+        System.out.println("Player: " + playerName);
+        System.out.println("Premium: " + isPremium);
         
-        // التحقق من أن اللاعبين المقرصنين ليس لديهم UUID
-        assertFalse(isPremium, "يجب ألا يكون اللاعب المقرصن أصلياً");
+        // Verify that cracked players don't have UUID
+        assertFalse(isPremium, "Cracked player must not be premium");
         
-        // AuthMe سيتطلب تسجيل الدخول اليدوي
+        // AuthMe will require manual login
         boolean requiresAuthMeRegistration = !isPremium;
-        assertTrue(requiresAuthMeRegistration, "يجب توجيه اللاعب المقرصن لـ AuthMe للتسجيل");
+        assertTrue(requiresAuthMeRegistration, "Cracked player must be redirected to AuthMe for registration");
         
-        System.out.println("✅ نجح اختبار اللاعب المقرصن - متوافق مع AuthMe 6.0.0");
+        System.out.println("✅ Cracked player test passed - Compatible with AuthMe 6.0.0");
     }
 
     @Test
-    @DisplayName("اختبار لاعب Bedrock (Geyser)")
+    @DisplayName("Bedrock Player Test (Geyser)")
     public void testBedrockPlayer() {
-        System.out.println("\n=== اختبار لاعب Bedrock ===");
+        System.out.println("\n=== Bedrock Player Test ===");
         
         String playerName = "BedrockPlayer";
         UUID uuid = UUID.randomUUID();
         boolean isBedrock = true;
-        boolean isPremium = true; // Geyser يتعامل مع المصادقة
+        boolean isPremium = true; // Geyser handles authentication
         
-        System.out.println("اللاعب: " + playerName);
+        System.out.println("Player: " + playerName);
         System.out.println("UUID: " + uuid);
-        System.out.println("نوع المنصة: Bedrock");
-        System.out.println("أصلي: " + isPremium);
+        System.out.println("Platform: Bedrock");
+        System.out.println("Premium: " + isPremium);
         
-        // التحقق من أن لاعبي Bedrock يتم التعامل معهم بشكل صحيح
-        assertTrue(isBedrock, "يجب التعرف على لاعب Bedrock");
-        assertTrue(isPremium, "يجب معالجة لاعب Bedrock كلاعب أصلي عبر Geyser");
+        // Verify that Bedrock players are handled correctly
+        assertTrue(isBedrock, "Must identify Bedrock player");
+        assertTrue(isPremium, "Bedrock player must be treated as premium via Geyser");
         
-        System.out.println("✅ نجح اختبار لاعب Bedrock - متوافق مع AuthMe 6.0.0");
+        System.out.println("✅ Bedrock player test passed - Compatible with AuthMe 6.0.0");
     }
 
     @Test
-    @DisplayName("اختبار تكامل AuthMeReloaded 6.0.0")
+    @DisplayName("AuthMeReloaded 6.0.0 Integration Test")
     public void testAuthMeIntegration() {
-        System.out.println("\n=== اختبار تكامل AuthMeReloaded 6.0.0 ===");
+        System.out.println("\n=== AuthMeReloaded 6.0.0 Integration Test ===");
         
-        // محاكاة إعدادات AuthMe 6.0.0
+        // Simulate AuthMe 6.0.0 settings
         boolean authMeEnabled = true;
         boolean forceSingleSession = true;
         int ipLimit = 3;
         
-        System.out.println("AuthMe مفعل: " + authMeEnabled);
-        System.out.println("جلسة واحدة فقط: " + forceSingleSession);
-        System.out.println("حد IP: " + ipLimit);
+        System.out.println("AuthMe Enabled: " + authMeEnabled);
+        System.out.println("Force Single Session: " + forceSingleSession);
+        System.out.println("IP Limit: " + ipLimit);
         
-        // اختبار سيناريو مختلط
+        // Test mixed scenario
         String[] players = {"PremiumUser", "CrackedUser", "BedrockUser"};
         boolean[] isPremiumList = {true, false, true};
         boolean[] isBedrockList = {false, false, true};
@@ -128,57 +128,57 @@ public class AuthMeCompatibilityTest {
             boolean isBedrock = isBedrockList[i];
             UUID uuid = isPremium ? UUID.randomUUID() : null;
             
-            System.out.println("اللاعب: " + playerName + 
-                             " | أصلي: " + isPremium + 
+            System.out.println("Player: " + playerName + 
+                             " | Premium: " + isPremium + 
                              " | Bedrock: " + isBedrock + 
-                             " | UUID: " + (uuid != null ? uuid : "لا يوجد"));
+                             " | UUID: " + (uuid != null ? uuid : "None"));
             
-            // التحقق من السلوك الصحيح
+            // Verify correct behavior
             if (isPremium) {
-                assertNotNull(uuid, "اللاعب الأصلي يجب أن يكون له UUID: " + playerName);
+                assertNotNull(uuid, "Premium player must have UUID: " + playerName);
             } else {
-                assertNull(uuid, "اللاعب المقرصن يجب ألا يكون له UUID: " + playerName);
+                assertNull(uuid, "Cracked player must not have UUID: " + playerName);
             }
         }
         
-        System.out.println("\n✅ نجح اختبار تكامل AuthMeReloaded 6.0.0");
-        System.out.println("FastLogin يدعم تماماً جميع أنواع اللاعبين مع AuthMe 6.0.0");
+        System.out.println("\n✅ AuthMeReloaded 6.0.0 integration test passed");
+        System.out.println("FastLogin fully supports all player types with AuthMe 6.0.0");
     }
 
     @Test
-    @DisplayName("اختبار Rate Limiting لمنع البوتات")
+    @DisplayName("Rate Limiting Test (Anti-Bot)")
     public void testRateLimiting() {
-        System.out.println("\n=== اختبار Rate Limiting ===");
+        System.out.println("\n=== Rate Limiting Test ===");
         
         String attackerIP = "192.168.1.100";
         int maxAttempts = 5;
         
-        System.out.println("محاولة هجوم من IP: " + attackerIP);
-        System.out.println("الحد الأقصى للمحاولات: " + maxAttempts);
+        System.out.println("Attack attempt from IP: " + attackerIP);
+        System.out.println("Max attempts allowed: " + maxAttempts);
         
-        // محاكاة Rate Limiting
+        // Simulate Rate Limiting
         int blockedCount = 0;
         for (int i = 0; i < 10; i++) {
             boolean allowed = i < maxAttempts;
             if (!allowed) {
                 blockedCount++;
-                System.out.println("المحاولة " + (i + 1) + ": تم الحظر ✅");
+                System.out.println("Attempt " + (i + 1) + ": Blocked ✅");
             } else {
-                System.out.println("المحاولة " + (i + 1) + ": مسموح");
+                System.out.println("Attempt " + (i + 1) + ": Allowed");
             }
         }
         
-        assertTrue(blockedCount > 0, "يجب حظر بعض المحاولات الزائدة");
-        assertEquals(5, blockedCount, "يجب حظر 5 محاولات");
+        assertTrue(blockedCount > 0, "Must block excessive attempts");
+        assertEquals(5, blockedCount, "Must block 5 attempts");
         
-        System.out.println("\nتم حظر " + blockedCount + " محاولات من أصل 10");
-        System.out.println("✅ نجح اختبار Rate Limiting");
+        System.out.println("\nBlocked " + blockedCount + " out of 10 attempts");
+        System.out.println("✅ Rate Limiting test passed");
     }
 
     public static void main(String[] args) {
         System.out.println("╔════════════════════════════════════════════════════════╗");
-        System.out.println("║  اختبار توافق FastLogin مع AuthMeReloaded 6.0.0       ║");
-        System.out.println("║  السيناريوهات: Original, Cracked, Bedrock             ║");
+        System.out.println("║  FastLogin Compatibility Test with AuthMeReloaded 6.0.0║");
+        System.out.println("║  Scenarios: Premium, Cracked, Bedrock                 ║");
         System.out.println("╚════════════════════════════════════════════════════════╝");
         
         AuthMeCompatibilityTest test = new AuthMeCompatibilityTest();
@@ -191,11 +191,11 @@ public class AuthMeCompatibilityTest {
             test.testRateLimiting();
             
             System.out.println("\n╔════════════════════════════════════════════════════════╗");
-            System.out.println("║  ✅ جميع الاختبارات نجحت بنجاح!                      ║");
-            System.out.println("║  المشروع متوافق تماماً مع AuthMeReloaded 6.0.0       ║");
+            System.out.println("║  ✅ All tests passed successfully!                   ║");
+            System.out.println("║  Fully compatible with AuthMeReloaded 6.0.0          ║");
             System.out.println("╚════════════════════════════════════════════════════════╝");
         } catch (Exception e) {
-            System.err.println("❌ فشل الاختبار: " + e.getMessage());
+            System.err.println("❌ Test failed: " + e.getMessage());
             e.printStackTrace();
         }
     }

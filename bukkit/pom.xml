@@ -194,11 +194,24 @@
             </exclusions>
         </dependency>
 
-        <!--Library for listening and sending Minecraft packets - Using JitPack-->
+        <!--Library for listening and sending Minecraft packets - Using PacketEvents for modern versions support -->
         <dependency>
-            <groupId>com.github.dmulloy2</groupId>
-            <artifactId>ProtocolLib</artifactId>
-            <version>5.3.0</version>
+            <groupId>com.github.retrooper</groupId>
+            <artifactId>packetevents-core</artifactId>
+            <version>2.12.2</version>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.retrooper</groupId>
+            <artifactId>packetevents-spigot</artifactId>
+            <version>2.12.2</version>
             <scope>provided</scope>
             <exclusions>
                 <exclusion>
